@@ -4,9 +4,10 @@ import (
 	"os"
 	"strings"
 	"image"
+	"fmt"
 	"image/color"
 	"image/jpeg"
-	"fmt"
+	"github.com/rwcarlsen/goexif/exif"
 )
 
 const (
@@ -14,16 +15,20 @@ const (
 )
 
 type ImageProcessor struct {
+	Ext string
+	Exif *exif.Exif
+	FileName string
 	Image *os.File
 	Src string
-	FileName string
-	Ext string
 }
 
 func NewImageProcessor(src string) *ImageProcessor {
 	return &ImageProcessor{Src: src}
 }
 
+/*
+ * Set -> Image, Src, FileName, Ext, Exif
+ */
 func (ip *ImageProcessor) Init() error {
 	file, err := os.Open(ip.Src)
 	if err != nil {
@@ -33,9 +38,15 @@ func (ip *ImageProcessor) Init() error {
 	ext := ip.getExt()
 	fileName := ip.getFileName()
 
+	exif, err := ip.getExif()
+	if err != nil {
+		return err
+	}
+
 	ip.Image = file
 	ip.FileName = fileName
 	ip.Ext = ext
+	ip.Exif = exif
 
 	return nil
 }
@@ -83,4 +94,13 @@ func (ip *ImageProcessor) getFileName() string {
 	pos := strings.LastIndex(ip.Src, "/")
 	fn := ip.Src[pos:]
 	return fn[1:]
+}
+
+func (ip *ImageProcessor) getExif() (*exif.Exif, error) {
+	exif, err := exif.Decode(ip.Image)
+	if err != nil {
+		return nil, err
+	}
+
+	return exif, nil
 }

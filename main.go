@@ -4,6 +4,7 @@ import (
 	"github.com/OdaDaisuke/go-algorithm/image_processor"
 	"github.com/OdaDaisuke/go-algorithm/dijkstra"
 	"github.com/OdaDaisuke/go-algorithm/goroutine"
+	"fmt"
 )
 
 func main() {
@@ -25,6 +26,7 @@ func startImageProcess() {
 	defer ip.CloseFile()
 
 	ip.GrayScale()
+	fmt.Println(ip.Exif)
 }
 
 func startDijkstra() {
