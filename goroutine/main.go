@@ -6,6 +6,13 @@ import (
 	"time"
 )
 
+func Start() {
+	number := []int{1,2,3,4,5}
+	Serial(number)
+	Parallel(number)
+	ParallelChannel(number)
+}
+
 func Serial(num []int) {
 	for _, n := range num {
 		fmt.Printf("serial: %d\n", n)

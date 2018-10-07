@@ -14,6 +14,15 @@ const (
 	dist = "image_processor/dist"
 )
 
+func Start() {
+	ip := NewImageProcessor("./assets/flower_1.jpeg")
+	ip.Init()
+	defer ip.CloseFile()
+
+	ip.GrayScale()
+	fmt.Println(ip.Exif)
+}
+
 type ImageProcessor struct {
 	Ext string
 	Exif *exif.Exif
