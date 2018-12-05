@@ -2,13 +2,15 @@ package main
 
 import (
 	"github.com/OdaDaisuke/go-algorithm/dijkstra"
+	"github.com/OdaDaisuke/go-algorithm/go_tour"
 	"github.com/OdaDaisuke/go-algorithm/goroutine"
 	"github.com/OdaDaisuke/go-algorithm/image_processor"
-	"github.com/OdaDaisuke/go-algorithm/go_tour"
 	"github.com/OdaDaisuke/go-algorithm/net_http"
+	"github.com/OdaDaisuke/go-algorithm/read_json"
 )
 
 func main() {
+	startReadJson()
 	startGoroutine()
 	startDijkstra()
 	startImageProcess()
@@ -34,4 +36,8 @@ func startGoTour() {
 
 func startNetHttp() {
 	net_http.Start()
+}
+
+func startReadJson() {
+	readjson.Start()
 }

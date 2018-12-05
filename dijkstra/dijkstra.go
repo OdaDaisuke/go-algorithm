@@ -6,20 +6,20 @@ import (
 
 // Node
 type Node struct {
-	name string // ノード名
+	name  string  // ノード名
 	edges []*Edge // 次に移動できるエッジ
-	done bool // 処理済みかを表すフラグ
-	cost int //　このノードにたどり着くのにかかったコスト
-	prev *Node // このノードにたどり着くのに使われたノード
+	done  bool    // 処理済みかを表すフラグ
+	cost  int     //　このノードにたどり着くのにかかったコスト
+	prev  *Node   // このノードにたどり着くのに使われたノード
 }
 
 func NewNode(name string) *Node {
 	return &Node{
-		name: name,
+		name:  name,
 		edges: []*Edge{},
-		done: false,
-		cost: -1,
-		prev: nil,
+		done:  false,
+		cost:  -1,
+		prev:  nil,
 	}
 }
 
@@ -30,7 +30,7 @@ func (this *Node) AddEdge(edge *Edge) {
 // Edge
 type Edge struct {
 	next *Node // 次に移動できるノード
-	cost int //移動にかかるコスト
+	cost int   //移動にかかるコスト
 }
 
 func NewEdge(next *Node, cost int) *Edge {
