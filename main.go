@@ -10,34 +10,10 @@ import (
 )
 
 func main() {
-	startReadJson()
-	startGoroutine()
-	startDijkstra()
-	startImageProcess()
-	startGoTour()
-	startNetHttp()
-}
-
-func startGoroutine() {
-	goroutine.Start()
-}
-
-func startImageProcess() {
-	image_processor.Start()
-}
-
-func startDijkstra() {
-	dijkstra.Start()
-}
-
-func startGoTour() {
-	go_tour.Start()
-}
-
-func startNetHttp() {
 	net_http.Start()
-}
-
-func startReadJson() {
+	goroutine.Start()
+	dijkstra.Start()
+	image_processor.Start()
+	go_tour.Start()
 	readjson.Start()
 }
