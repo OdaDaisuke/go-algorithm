@@ -141,7 +141,7 @@ func Start() {
 	// Pub, Sub
 
 	// subscriber
-	psc := redis.PubSubConn{Conn :conn }
+	psc := redis.PubSubConn{ Conn :conn }
 	psc.Subscribe("channel_1", "channel_2", "channel_3")
 	for {
 		switch v := psc.Receive().(type) {
