@@ -67,18 +67,18 @@ send元のGのPのキューにエンキューされる。
 
 func Start() {
 	number := []int{1,2,3,4,5}
-	Serial(number)
-	Parallel(number)
-	ParallelChannel(number)
+	serial(number)
+	parallel(number)
+	parallelChannel(number)
 }
 
-func Serial(num []int) {
+func serial(num []int) {
 	for _, n := range num {
 		fmt.Printf("serial: %d\n", n)
 	}
 }
 
-func Parallel(num []int) {
+func parallel(num []int) {
 	fmt.Println()
 	var wp sync.WaitGroup
 
@@ -95,7 +95,7 @@ func Parallel(num []int) {
 	wp.Wait()
 }
 
-func ParallelChannel(num []int) {
+func parallelChannel(num []int) {
 	res := make(chan int, len(num))
 	go func() {
 		defer close(res)

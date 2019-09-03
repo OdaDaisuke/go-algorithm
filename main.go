@@ -1,9 +1,10 @@
 package main
 
-import "github.com/OdaDaisuke/go-algorithm/process"
+import "github.com/OdaDaisuke/go-algorithm/goroutine"
 
 func main() {
-	process.Run()
+	goroutine.StartChatRoom()
+	//process.Run()
 	//goroutine.GCTest()
 	//app_redis.Start()
 	//net_http.Start()
