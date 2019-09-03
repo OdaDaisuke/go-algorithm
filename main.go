@@ -1,9 +1,10 @@
 package main
 
-import "github.com/OdaDaisuke/go-algorithm/goroutine"
+import "github.com/OdaDaisuke/go-algorithm/char"
 
 func main() {
-	goroutine.StartChatRoom()
+	char.Start()
+	//goroutine.StartChatRoom()
 	//process.Run()
 	//goroutine.GCTest()
 	//app_redis.Start()
