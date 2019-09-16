@@ -1,10 +1,14 @@
 package main
 
-import "github.com/OdaDaisuke/go-algorithm/char"
+import (
+	"github.com/OdaDaisuke/go-algorithm/sync"
+)
 
 func main() {
-	char.Start()
-	//goroutine.StartChatRoom()
+	sync.Start()
+	//lock.Start()
+	//char.Start()
+	//goroutine.Start()
 	//process.Run()
 	//goroutine.GCTest()
 	//app_redis.Start()

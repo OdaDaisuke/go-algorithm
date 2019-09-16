@@ -66,10 +66,11 @@ send元のGのPのキューにエンキューされる。
  */
 
 func Start() {
-	number := []int{1,2,3,4,5}
-	serial(number)
-	parallel(number)
-	parallelChannel(number)
+	StartPriorityQueue()
+	//number := []int{1,2,3,4,5}
+	//serial(number)
+	//parallel(number)
+	//parallelChannel(number)
 }
 
 func serial(num []int) {
